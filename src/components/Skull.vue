@@ -12,28 +12,25 @@
 <script>
 import axios from 'axios'
 export default
-{
-    name: 'Skull',
-    data()
     {
-        return {
-            msg: 'Hi! This is the skull component 💀'
-        }
-    },
-    methods:
-    {
-        getSkull()
+        name: 'Skull',
+        data() {
+            return {
+                msg: 'Hi! This is the skull component 💀'
+            }
+        },
+        methods:
         {
-            axios.get('http://localhost:5000/skull')
-            .then(response => (this.msg = response.data))
-            .catch(error => console.log(error))
+            getSkull() {
+                axios.get('http://localhost:5000/skull')
+                    .then(response => (this.msg = response.data))
+                    .catch(error => console.log(error))
+            }
+        },
+        created() {
+            this.getSkull()
         }
-    },
-    created()
-    {
-        this.getSkull()
-    }
 
-    
-}
+
+    }
 </script>
